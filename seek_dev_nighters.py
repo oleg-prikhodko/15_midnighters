@@ -2,6 +2,7 @@ import json
 import sys
 from datetime import datetime
 from urllib.error import URLError
+from urllib.parse import urlencode
 from urllib.request import urlopen
 
 from pytz import timezone, utc
@@ -10,10 +11,11 @@ from pytz import timezone, utc
 def load_attempts():
     page = 1
     number_of_pages = 1
-    api_url = "http://devman.org/api/challenges/solution_attempts/?page={}"
+    api_url = "http://devman.org/api/challenges/solution_attempts/?"
 
     while page <= number_of_pages:
-        response = urlopen(api_url.format(page))
+        url_params = {"page": page}
+        response = urlopen(api_url + urlencode(url_params))
         attempts_info = json.loads(response.read())
         solution_attempts = attempts_info["records"]
         number_of_pages = attempts_info["number_of_pages"]
