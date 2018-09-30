@@ -4,7 +4,7 @@ Shows users who submited solutions to chalenges after 12 PM
 
 # Quickstart
 
-Requires pytz to manage timezones: run pip install -r requirements.txt
+Requires pytz to manage timezones: run 'pip install -r requirements.txt'
 
 Example of script launch on Linux, Python 3.5:
 
